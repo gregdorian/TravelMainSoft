@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace co.Travel.Domain.Repository
 {
-    public interface IRepositoryBase<T> : IAbstractionBase<T> where T : class
+    public interface IRepositoryBase<T> : IAbstractionBase<T>
     {
 
     }

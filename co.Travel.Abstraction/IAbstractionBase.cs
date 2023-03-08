@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace co.Travel.Abstraction
 {
-    public interface IAbstractionBase<T> where T : class
+    public interface IAbstractionBase<T> 
     {
         void Add(T entity);
 

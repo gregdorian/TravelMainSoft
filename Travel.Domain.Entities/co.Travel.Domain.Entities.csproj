@@ -6,4 +6,8 @@
     <Nullable>disable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\co.Travel.Abstraction\co.Travel.Abstraction.csproj" />
+  </ItemGroup>
+
 </Project>

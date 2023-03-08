@@ -1,4 +1,5 @@
-﻿using System;
+﻿using co.Travel.Abstraction;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace co.Travel.Domain.Repository
 {
-    public class RepositoryBase<T> : IRepositoryBase<T> where T : class
+    public class RepositoryBase<T> : IRepositoryBase<T> where T : IEntity
     {
         public void Add(T entity)
         {
@@ -38,4 +39,5 @@ namespace co.Travel.Domain.Repository
             throw new NotImplementedException();
         }
     }
+
 }

@@ -1,17 +1,26 @@
 ﻿
 
+using co.Travel.Abstraction;
+using co.Travel.Domain.Repository;
+
 namespace co.Travel.Application
 {
-    public class ApplicationService<T> : IApplicationService<T> where T : class
+    public class ApplicationService<T> : IApplicationService<T> where T : IEntity
     {
+        private readonly IRepositoryBase<T> _repository;
+
+        public ApplicationService(IRepositoryBase<T> repository)
+        {
+            this._repository = repository;
+        }
         public void Add(T entity)
         {
-            throw new NotImplementedException();
+            _repository.Add(entity);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _repository.Delete(id);
         }
 
         public void Dispose()
@@ -21,17 +30,17 @@ namespace co.Travel.Application
 
         public IEnumerable<T> GetAll()
         {
-            throw new NotImplementedException();
+           return _repository.GetAll();
         }
 
         public T GetById(int id)
         {
-            throw new NotImplementedException();
+           return _repository.GetById(id);
         }
 
         public void Modify(T entity)
         {
-            throw new NotImplementedException();
+            _repository.Modify(entity);
         }
     }
 }

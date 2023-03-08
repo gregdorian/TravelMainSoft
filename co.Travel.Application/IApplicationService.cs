@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace co.Travel.Application
 {
-    public interface IApplicationService<T> : IAbstractionBase<T> where T : class
+    public interface IApplicationService<T> : IAbstractionBase<T>
     {
     }
 }

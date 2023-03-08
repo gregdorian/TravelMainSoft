@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\co.Travel.Abstraction\co.Travel.Abstraction.csproj" />
     <ProjectReference Include="..\co.Travel.Services\co.Travel.Services.csproj" />
     <ProjectReference Include="..\Travel.Domain.Entities\co.Travel.Domain.Entities.csproj" />
   </ItemGroup>
