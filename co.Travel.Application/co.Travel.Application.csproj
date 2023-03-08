@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\co.Travel.Abstraction\co.Travel.Abstraction.csproj" />
+    <ProjectReference Include="..\co.Travel.Domain.Repository\co.Travel.Domain.Repository.csproj" />
+    <ProjectReference Include="..\co.Travel.Services\co.Travel.Services.csproj" />
+    <ProjectReference Include="..\Travel.Domain.Entities\co.Travel.Domain.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

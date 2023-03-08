@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\co.Travel.Application\co.Travel.Application.csproj" />
+    <ProjectReference Include="..\co.Travel.Services\co.Travel.Services.csproj" />
+    <ProjectReference Include="..\Travel.Domain.Entities\co.Travel.Domain.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
