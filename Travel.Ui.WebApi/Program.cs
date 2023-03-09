@@ -1,7 +1,16 @@
 
-using co.Travel.Abstraction;
 using co.Travel.Application;
 using co.Travel.Domain.Repository;
+using co.Travel.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
+
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+using Travel.Ui.WebApi.Configuration;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,8 +25,34 @@ builder.Services.AddScoped(typeof(IApplicationService<>), typeof(ApplicationServ
 builder.Services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
 
 // *** se realiza inyeccion de dependencias al DbContext ***
-//builder.Services.AddDbContext<TravelDbContext>(opciones =>
-//    opciones.UseSqlServer("name=dbConnection"));
+builder.Services.AddDbContext<TravelDbContext>(opciones => opciones.UseSqlServer("name=dbConnection"));
+
+builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JwtConfig"));
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+            .AddJwtBearer(jwt => {
+                var key = Encoding.ASCII.GetBytes(builder.Configuration["JwtConfig:Secret"]);
+
+                jwt.SaveToken = true;
+                jwt.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    RequireExpirationTime = false,
+                    ValidateLifetime = true
+                };
+            });
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+                        options.SignIn.RequireConfirmedAccount = true)
+                       .AddEntityFrameworkStores<TravelDbContext>();
 
 var app = builder.Build();
                      
@@ -31,6 +66,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+//*** indica middleware esquema de autenticación****
+app.UseAuthentication();
 
 app.MapControllers();
 

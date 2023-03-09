@@ -1,18 +1,27 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using co.Travel.Domain.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace co.Travel.Infrastructure.Data
 {
-    public class TravelDbContext : DbContext
+    public class TravelDbContext : IdentityDbContext
     {
+
         public TravelDbContext(DbContextOptions options) : base(options)
         {
 
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            //**** Solo para Realizarel Primer Initial-Migration  ****
+            if (!optionsBuilder.IsConfigured)
+            {
+
+                //optionsBuilder.UseSqlServer(_configuration.GetConnectionString("dbConnection"));
+                optionsBuilder.UseSqlServer("name=dbConnection");
+            }
         }
 
         public virtual DbSet<Autor> Autores { get; set; }
@@ -23,83 +32,77 @@ namespace co.Travel.Infrastructure.Data
 
         public virtual DbSet<Libro> Libros { get; set; }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Autore>(entity =>
-        //    {
-        //        entity.HasKey(e => e.Id).HasName("PK__Autores__3213E83FCB905200");
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Ignore<Entity>();
 
-        //        entity.Property(e => e.Id)
-        //            .ValueGeneratedNever()
-        //            .HasColumnName("id");
-        //        entity.Property(e => e.Apellidos)
-        //            .HasMaxLength(45)
-        //            .IsUnicode(false);
-        //        entity.Property(e => e.Nombres)
-        //            .HasMaxLength(45)
-        //            .IsUnicode(false)
-        //            .HasColumnName("nombres");
-        //    });
+            modelBuilder.Entity<Autor>(entity =>
+            {
+                entity.HasKey(e => e.Id).HasName("PK_Autores");
 
-        //    modelBuilder.Entity<AutoresLibro>(entity =>
-        //    {
-        //        entity.HasKey(e => e.AutoresLibrosId).HasName("PK__AutoresL__047B18FD03FE45F8");
+                entity.Property(e => e.Apellidos)
+                    .HasMaxLength(45)
+                    .IsUnicode(false);
+                entity.Property(e => e.Nombres)
+                    .HasMaxLength(45)
+                    .IsUnicode(false)
+                    .HasColumnName("nombres");
+            });
 
-        //        entity.Property(e => e.AutoresLibrosId)
-        //            .ValueGeneratedNever()
-        //            .HasColumnName("AutoresLibrosID");
-        //        entity.Property(e => e.AutoresId).HasColumnName("autores_id");
-        //        entity.Property(e => e.LibrosIsbn).HasColumnName("libros_ISBN");
+            modelBuilder.Entity<AutoresLibro>(entity =>
+            {
+                entity.HasKey(e => e.Id).HasName("PK_AutoresLibro");
 
-        //        entity.HasOne(d => d.Autores).WithMany(p => p.AutoresLibros)
-        //            .HasForeignKey(d => d.AutoresId)
-        //            .HasConstraintName("FK__AutoresLi__autor__2E1BDC42");
+                entity.Property(e => e.AutoresId).HasColumnName("AutoresId");
+                entity.Property(e => e.LibrosIsbn).HasColumnName("LibrosIsbn");
 
-        //        entity.HasOne(d => d.LibrosIsbnNavigation).WithMany(p => p.AutoresLibros)
-        //            .HasForeignKey(d => d.LibrosIsbn)
-        //            .HasConstraintName("FK__AutoresLi__libro__2F10007B");
-        //    });
+                entity.HasOne(d => d.Autores).WithMany(p => p.AutoresLibros)
+                    .HasForeignKey(d => d.AutoresId)
+                    .HasConstraintName("FK_AutoresLibro_autor");
 
-        //    modelBuilder.Entity<Editoriale>(entity =>
-        //    {
-        //        entity.HasKey(e => e.Id).HasName("PK__Editoria__3213E83F472ABA3E");
+                entity.HasOne(d => d.LibroIsbn).WithMany(p => p.AutoresLibros)
+                    .HasForeignKey(d => d.LibrosIsbn)
+                    .HasConstraintName("FK_AutoresLibro_libro");
+            });
 
-        //        entity.Property(e => e.Id)
-        //            .ValueGeneratedNever()
-        //            .HasColumnName("id");
-        //        entity.Property(e => e.Sede)
-        //            .HasMaxLength(45)
-        //            .IsUnicode(false)
-        //            .HasColumnName("sede");
-        //    });
 
-        //    modelBuilder.Entity<Libro>(entity =>
-        //    {
-        //        entity.HasKey(e => e.Isbn).HasName("PK__Libros__447D36EBD42157B1");
+            modelBuilder.Entity<Editorial>(entity =>
+            {
+                entity.HasKey(e => e.Id).HasName("PK_Editorial");
 
-        //        entity.Property(e => e.Isbn)
-        //            .ValueGeneratedNever()
-        //            .HasColumnName("ISBN");
-        //        entity.Property(e => e.EditoresId).HasColumnName("Editores_id");
-        //        entity.Property(e => e.NPaginas)
-        //            .HasMaxLength(45)
-        //            .IsUnicode(false)
-        //            .HasColumnName("n_paginas");
-        //        entity.Property(e => e.Sinopsis)
-        //            .HasColumnType("text")
-        //            .HasColumnName("sinopsis");
-        //        entity.Property(e => e.Titulo)
-        //            .HasMaxLength(45)
-        //            .IsUnicode(false);
+                entity.Property(e => e.Id);
 
-        //        entity.HasOne(d => d.Editores).WithMany(p => p.Libros)
-        //            .HasForeignKey(d => d.EditoresId)
-        //            .HasConstraintName("FK__Libros__Editores__2D27B809");
-        //    });
+                entity.Property(e => e.Sede)
+                    .HasMaxLength(45)
+                    .IsUnicode(false)
+                    .HasColumnName("sede");
+            });
 
-        //    OnModelCreatingPartial(modelBuilder);
-        //}
+            modelBuilder.Entity<Libro>(entity =>
+            {
+                entity.HasKey(e => e.Id).HasName("PK_Libros");
 
-        //partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+                entity.Property(e => e.Id)
+                    .HasColumnName("ISBN");
+                entity.Property(e => e.EditoresId).HasColumnName("Editores_id");
+                entity.Property(e => e.NPaginas)
+                    .HasMaxLength(45)
+                    .IsUnicode(false)
+                    .HasColumnName("n_paginas");
+                entity.Property(e => e.Sinopsis)
+                    .HasColumnType("text")
+                    .HasColumnName("sinopsis");
+                entity.Property(e => e.Titulo)
+                    .HasMaxLength(45)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.Editores).WithMany(p => p.Libros)
+                    .HasForeignKey(d => d.EditoresId)
+                    .HasConstraintName("FK_Libros_Editores");
+            });
+
+            base.OnModelCreating(modelBuilder);
+        }
+ 
     }
 }

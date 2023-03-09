@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace co.Travel.Domain.Entities
 {
-    public class Autor
+    public class Autor : Entity
     {
-        public int Id { get; set; }
 
         public string Nombres { get; set; }
 

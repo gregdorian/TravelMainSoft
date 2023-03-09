@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace co.Travel.Domain.Entities
 {
-    public class Libro
+    public class Libro : Entity
     {
-        public int Isbn { get; set; }
 
         public int EditoresId { get; set; }
 
