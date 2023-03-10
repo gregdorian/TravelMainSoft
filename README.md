@@ -52,15 +52,15 @@ Realizar el *Add-Migration* en el Package-Manager-Console
 
 Luego en la misma consola Realizar el *Update-Database*
 
-#Seguridad
+# Seguridad
 
 Se realizo La auteticación y la autorización con JWT junto con Identity de .Net 7.
    
-#Pruebas Unitarias
+# Pruebas Unitarias
    
 Se realizo pruebas unitarias con **X-Unit**
    
-#Ejecucion de WebApi
+# Ejecucion de WebApi
    
 Se utilizao webapi para los verbos Get y post de Autor, Libros, Editorial; Para las pruebas de estas se utilizo -
    *Insomia(https://insomnia.rest/download)* 
