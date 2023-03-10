@@ -77,4 +77,28 @@ Registrando Usuario:
 Login Usuario:
 
 ![Travel](https://github.com/gregdorian/TravelMainSoft/blob/master/MediaArchives/InsomiaLogin.png)
+   
+ Guardando Autores:
+   
+ ![Travel](https://github.com/gregdorian/TravelMainSoft/blob/master/MediaArchives/InsomiaGuardarAutores.png)
+ 
+ Obteniendo Autores:
+   
+ ![Travel](https://github.com/gregdorian/TravelMainSoft/blob/master/MediaArchives/InsomiaAutores.png)
+ 
+ Grabando Libros:
+   
+ ![Travel](https://github.com/gregdorian/TravelMainSoft/blob/master/MediaArchives/GuardarLibros.png)
+   
+ Obteniendo Libros:
+ 
+ ![Travel](https://github.com/gregdorian/TravelMainSoft/blob/master/MediaArchives/InsomiaGetLibros.png)
+   
+ Guardar Editorial:
+   
+  ![Travel](https://github.com/gregdorian/TravelMainSoft/blob/master/MediaArchives/InsomiaGetLibros.png)
+   
+ Mostrar Editorial:
+   
+  ![Travel](https://github.com/gregdorian/TravelMainSoft/blob/master/MediaArchives/InsomiaMostrarEditorial.png)
 
