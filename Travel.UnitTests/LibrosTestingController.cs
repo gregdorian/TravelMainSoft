@@ -2,6 +2,7 @@ using co.Travel.Application;
 using co.Travel.Application.AppServices;
 using co.Travel.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Frameworks;
 using Travel.Ui.WebApi.Controllers;
 
 namespace Travel.UnitTests
@@ -9,13 +10,12 @@ namespace Travel.UnitTests
     public class LibrosTestingController
     {
         private readonly LibrosController LibroCller;
-        private readonly LibroAppService _Service;
         public readonly IApplicationService<Libro> LibroService;
 
         public LibrosTestingController(IApplicationService<Libro> libroService, LibroAppService libroAppService)
         {
-             this._Service = libroAppService;   
-            this.LibroCller = new LibrosController(_Service);
+
+            this.LibroCller = new LibrosController(LibroService);
 
         }
         [Fact]
@@ -28,21 +28,13 @@ namespace Travel.UnitTests
         }
 
         [Fact]
-        public void IsPostOK()
+        public void IsGetHasAny()
         {
-            //    var libroPruebaData=
+            var result = (OkObjectResult)LibroCller.GetAll();
 
-            //    var httpResult = LibroCller.Post(LibroPruebaData);
-
-            //    Assert.IsType<OkObjectResult>(httpResult);
-
-            //var f = new FootballTeam()
-            //{
-            //    Name = dto.Name,
-            //    Score = dto.Score,
-            //    Manager = dto.Manager,
-            //};
-
+            var libros = Assert.IsType<List<Libro>>(result.Value);
+             Assert.True(libros.Any());
+                            
         }
     }
 }
