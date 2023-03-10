@@ -1,4 +1,6 @@
-﻿namespace Travel.Ui.WebApi.Middleware
+﻿using co.Travel.Abstraction;
+
+namespace Travel.Ui.WebApi.Configuration
 {
     public class TokenParameters : ITokenParameters
     {
@@ -6,5 +8,4 @@
         public string PasswordHash { get; set; }
         public string Id { get; set; }
     }
-
 }

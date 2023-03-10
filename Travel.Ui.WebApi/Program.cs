@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-using Travel.Ui.WebApi.Configuration;
+using co.Travel.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -21,8 +21,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//*** Inyecion Dependencias de DotNet   ****
 builder.Services.AddScoped(typeof(IApplicationService<>), typeof(ApplicationService<>));
+//builder.Services.AddScoped(typeof(IfaltaUNO?<>), typeof(faltaUNO?<>));
 builder.Services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
+builder.Services.AddScoped(typeof(ITokenHandlerService), typeof(TokenHandlerService));
 
 // *** se realiza inyeccion de dependencias al DbContext ***
 builder.Services.AddDbContext<TravelDbContext>(opciones => opciones.UseSqlServer("name=dbConnection"));

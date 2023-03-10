@@ -25,4 +25,8 @@
     <ProjectReference Include="..\Travel.Domain.Entities\co.Travel.Domain.Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Middleware\" />
+  </ItemGroup>
+
 </Project>
