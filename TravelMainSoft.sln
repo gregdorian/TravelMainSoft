@@ -19,13 +19,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "co.Travel.Abstraction", "co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{9443E673-043F-4D9F-BAAC-0BF2964EEDC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travel.FunctionalTests", "Travel.FunctionalTests\Travel.FunctionalTests.csproj", "{EC8C0C32-0D39-42E9-95EA-CBDC4A02E425}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Travel.FunctionalTests", "Travel.FunctionalTests\Travel.FunctionalTests.csproj", "{EC8C0C32-0D39-42E9-95EA-CBDC4A02E425}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travel.IntegrationTests", "Travel.IntegrationTests\Travel.IntegrationTests.csproj", "{C11699BE-B278-40B9-B1C9-5FB2F9D51C88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Travel.IntegrationTests", "Travel.IntegrationTests\Travel.IntegrationTests.csproj", "{C11699BE-B278-40B9-B1C9-5FB2F9D51C88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travel.UnitTests", "Travel.UnitTests\Travel.UnitTests.csproj", "{1ED380F3-254F-4825-BBBA-24F090EA66ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Travel.UnitTests", "Travel.UnitTests\Travel.UnitTests.csproj", "{1ED380F3-254F-4825-BBBA-24F090EA66ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "co.Travel.Domain.Core", "co.Travel.Domain.Core\co.Travel.Domain.Core.csproj", "{6407E278-4DE1-4F6A-878E-D1029BEE3DA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "co.Travel.Domain.Core", "co.Travel.Domain.Core\co.Travel.Domain.Core.csproj", "{6407E278-4DE1-4F6A-878E-D1029BEE3DA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
