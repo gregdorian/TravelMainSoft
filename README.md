@@ -1,6 +1,5 @@
 # TravelMainSoft
 
-# RigoBikeShop
 sistema de Libreria con nombre Travel
 
 Se desarrollo en: 
