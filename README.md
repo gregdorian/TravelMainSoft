@@ -14,7 +14,7 @@ Se desarrollo en:
 
 Se Realizaron los siguientes entidades/Tablas
 
-![Rigo](https://github.com/gregdorian/RigoBikeShop/blob/master/RigoRigo.jpg)
+![Travel](https://github.com/gregdorian/TravelMainSoft/blob/master/MediaArchives/Diagrama%20Entidad%20Relacion.png)
 
 Autor
 
