@@ -80,7 +80,7 @@ Login Usuario:
    
  Guardando Autores:
    
- ![Travel](https://github.com/gregdorian/TravelMainSoft/blob/master/MediaArchives/InsomiaGuardarAutores.png)
+ ![Travel](https://github.com/gregdorian/TravelMainSoft/blob/master/MediaArchives/InsomiaGuardarAutores.jpg)
  
  Obteniendo Autores:
    
