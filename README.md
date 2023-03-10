@@ -67,3 +67,14 @@ Se realizo pruebas unitarias con **X-Unit**
    
 Se utilizao webapi para los verbos Get y post de Autor, Libros, Editorial; Para las pruebas de estas se utilizo -
    *Insomia(https://insomnia.rest/download)* 
+   
+![Travel](https://github.com/gregdorian/TravelMainSoft/blob/master/MediaArchives/SwaggerWebApi.png)
+
+Registrando Usuario:
+
+![Travel](https://github.com/gregdorian/TravelMainSoft/blob/master/MediaArchives/InsomiaRegister.png)
+
+Login Usuario:
+
+![Travel](https://github.com/gregdorian/TravelMainSoft/blob/master/MediaArchives/InsomiaLogin.png)
+
