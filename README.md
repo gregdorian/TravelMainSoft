@@ -49,9 +49,12 @@ Para Instalar la base de datos debe realizar los cambios de instancia/Nombre ser
    "dbConnection" : "Server=<<Instancia/NombreServidor>> ; Database= <<NombreBaseDatos>>; Integrated Security=true; TrustServerCertificate=true"
    }
 Realizar el *Add-Migration* en el Package-Manager-Console 
-
+![Travel](https://github.com/gregdorian/TravelMainSoft/blob/master/MediaArchives/instalar%20en%20base%20de%20datos%20con%20codefirst.png)
+   
 Luego en la misma consola Realizar el *Update-Database*
-
+![Travel](https://github.com/gregdorian/TravelMainSoft/blob/master/MediaArchives/instalar%20en%20base%20de%20datos%20con%20codefirst2.png)
+   
+   
 # Seguridad
 
 Se realizo La auteticación y la autorización con JWT junto con Identity de .Net 7.
