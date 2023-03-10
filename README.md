@@ -63,4 +63,4 @@ Se realizo pruebas unitarias con **X-Unit**
 #Ejecucion de WebApi
    
 Se utilizao webapi para los verbos Get y post de Autor, Libros, Editorial; Para las pruebas de estas se utilizo -
-   *![Travel]Insomia(https://insomnia.rest/download)* 
+   *Insomia(https://insomnia.rest/download)* 
