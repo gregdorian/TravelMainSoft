@@ -88,7 +88,7 @@ Login Usuario:
  
  Grabando Libros:
    
- ![Travel](https://github.com/gregdorian/TravelMainSoft/blob/master/MediaArchives/GuardarLibros.png)
+ ![Travel](https://github.com/gregdorian/TravelMainSoft/blob/master/MediaArchives/guardarLibro.png)
    
  Obteniendo Libros:
  
