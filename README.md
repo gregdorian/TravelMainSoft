@@ -14,7 +14,7 @@ Se desarrollo en:
 
 Se Realizaron los siguientes entidades/Tablas
 
---![Rigo](https://github.com/gregdorian/RigoBikeShop/blob/master/RigoRigo.jpg)
+![Rigo](https://github.com/gregdorian/RigoBikeShop/blob/master/RigoRigo.jpg)
 
 Autor
 
@@ -52,4 +52,15 @@ Realizar el *Add-Migration* en el Package-Manager-Console
 
 Luego en la misma consola Realizar el *Update-Database*
 
+#Seguridad
 
+Se realizo La auteticación y la autorización con JWT junto con Identity de .Net 7.
+   
+#Pruebas Unitarias
+   
+Se realizo pruebas unitarias con **X-Unit**
+   
+#Ejecucion de WebApi
+   
+Se utilizao webapi para los verbos Get y post de Autor, Libros, Editorial; Para las pruebas de estas se utilizo -
+   *![Travel]Insomia(https://insomnia.rest/download)* 
